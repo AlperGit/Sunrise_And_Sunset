@@ -1,8 +1,47 @@
 <%- include("partials/header.ejs") %>
 
 <div class="container">
-    <i class="bi bi-sunrise"></i>
+    <div class="full-height d-flex align-items-center">
+        <div class="col-4">
+            <div class="d-flex justify-content-center">
+                <div class="sunrisedata d-flex flex-column align-items-center">
+                    <i class="bi bi-sunrise" style="font-size:xx-large"></i>
+                    <p>Sunrise</p>
+                    <% if (locals.sunrise) { %>
+                        <p><%= locals.sunrise %></p>
+                    <% } else { %>
+                        <p>No sunrise time available</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" >
+            <div class="d-flex justify-content-center">
+                <div class="sunupdata d-flex flex-column align-items-center">
+                    <i class="bi bi-sun" style="font-size:xx-large"></i>
+                    <p>Day length</p>
+                    <% if (locals.sun_day) { %>
+                        <p><%= locals.sunday %></p>
+                    <% } else { %>
+                        <p>No day length time available</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" >
+            <div class="d-flex justify-content-center">
+                <div class="sundowndata d-flex flex-column align-items-center">
+                    <i class="bi bi-sunset" style="font-size:xx-large"></i>
+                    <p>Sunset</p>
+                    <% if (locals.sun_day) { %>
+                        <p><%= locals.sunset %></p>
+                    <% } else { %>
+                        <p>No sun set time available</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 
 <%- include("partials/footer.ejs") %>
