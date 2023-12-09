@@ -20,8 +20,6 @@ app.get("/", (req, res) => {
 
 app.post("/", async (req, res) =>
 {
-    console.log(req.body.latitude);
-    console.log(req.body.longitude);
     //Get current lat and longitude from request
     var lat = req.body.latitude;
     var long = req.body.longitude;
@@ -35,13 +33,16 @@ app.post("/", async (req, res) =>
     //Check if day month and year are full
     if(day == "" || month == "" || year == "")
     {
+        
         //Use axios to get the lat and long without the date
         try {
             const response = await axios.get(API_URL, {
-                lat : lat,
-                long : long
+                params: 
+                {
+                    lat: lat,
+                    lng: long
+                }
             });
-            console.log(response.data);
 
             res.render("index.ejs", {
                 sunrise : response.data.results.sunrise,
@@ -50,8 +51,11 @@ app.post("/", async (req, res) =>
             });
 
         } catch (error) {
-            console.log("error");
-            res.render("index.ejs");
+            res.render("index.ejs", {
+                sunrise : "Error",
+                sunday : "Error",
+                sunset : "Error"
+            });
         }
     }
     else
