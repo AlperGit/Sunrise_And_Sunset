@@ -46,20 +46,22 @@
     <!--Container for all user-data half the size of the screen height-->
     <div class="half-height d-flex">
         <!-- The inputs for latitude and longitude-->
-        <div class="d-flex flex-column col-5">
-            <p>Required:</p>
+        <div class="d-flex flex-column col-6">
             <form action="/get">
+                <label>Required:</label>
+                <br><br>
+                <label>Position:</label><br>
                 <label class="col-2">Latitude:</label><input class="col-4" type="text" id="latitude" name="latitude"></br>
                 <label class="col-2">Longitude:</label><input  class="col-4"type="text" id="longitude" name="longitude">
-            </form>
-        </div>
-        <div class="d-flex flex-column col-6">
-            <p>Optional</p>
-            <form action="/get">
+                <br><br>
+                <label>Optional:</label>
+                <br><br>
                 <label>Date:</label></br>
-                <label class="col-1">Day</label><input class="col-2" type="text" id="day" name="day">
-                <label class="col-1">Month</label><input class="col-2" type="text" id="month" name="month">
-                <label class="col-1">Year</label><input class="col-2" type="text" id="year" name="year">
+                <label class="col-2">Day</label><input class="col-4" type="text" id="day" name="day"></br>
+                <label class="col-2">Month</label><input class="col-4" type="text" id="month" name="month"></br>
+                <label class="col-2">Year</label><input class="col-4" type="text" id="year" name="year"></br></br>
+                <input class="col-6" type="submit" value="Submit">
+
             </form>
         </div>
     </div>
