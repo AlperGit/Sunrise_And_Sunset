@@ -1,4 +1,4 @@
-import express from "express"
+import express, { response } from "express"
 import bodyParser from "body-parser";
 import axios from "axios";
 
@@ -20,6 +20,8 @@ app.get("/", (req, res) => {
 
 app.post("/", async (req, res) =>
 {
+    console.log(req.body.latitude);
+    console.log(req.body.longitude);
     //Get current lat and longitude from request
     var lat = req.body.latitude;
     var long = req.body.longitude;
@@ -29,6 +31,7 @@ app.post("/", async (req, res) =>
     var month = req.body.month;
     var year = req.body.year;
 
+    
     //Check if day month and year are full
     if(day == "" || month == "" || year == "")
     {
@@ -38,11 +41,12 @@ app.post("/", async (req, res) =>
                 lat : lat,
                 long : long
             });
-
             console.log(response.data);
-            console.log(response.data.results.sunrise);
+
             res.render("index.ejs", {
-                sunrise : response.data.results.sunrise
+                sunrise : response.data.results.sunrise,
+                sunday : response.data.results.day_length,
+                sunset : response.data.results.sunset
             });
 
         } catch (error) {

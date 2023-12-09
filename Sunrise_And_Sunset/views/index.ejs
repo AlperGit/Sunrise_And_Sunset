@@ -21,7 +21,7 @@
                 <div class="sunupdata d-flex flex-column align-items-center">
                     <i class="bi bi-sun" style="font-size:xx-large"></i>
                     <p>Day length</p>
-                    <% if (locals.sun_day) { %>
+                    <% if (locals.sunday) { %>
                         <p><%= locals.sunday %></p>
                     <% } else { %>
                         <p>No day length time available</p>
@@ -34,7 +34,7 @@
                 <div class="sundowndata d-flex flex-column align-items-center">
                     <i class="bi bi-sunset" style="font-size:xx-large"></i>
                     <p>Sunset</p>
-                    <% if (locals.sun_day) { %>
+                    <% if (locals.sunset) { %>
                         <p><%= locals.sunset %></p>
                     <% } else { %>
                         <p>No sun set time available</p>
